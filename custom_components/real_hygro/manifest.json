@@ -1,5 +1,5 @@
 {
-  "domain": "real_hygro",
+  "domain": "empx_real_hygro",
   "name": "Real Hygro Dehumidifier",
   "version": "0.1.0",
   "documentation": "https://example.com",
