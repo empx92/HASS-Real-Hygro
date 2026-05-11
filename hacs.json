@@ -1,0 +1,8 @@
+{
+  "name": "Real Hygro",
+  "content_in_root": false,
+  "country": ["DE", "AT", "CH"],
+  "homeassistant": "2026.5.0",
+  "domains": ["humidifier"],
+  "render_readme": true
+}
