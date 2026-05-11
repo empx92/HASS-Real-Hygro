@@ -3,6 +3,7 @@
 DOMAIN = "real_hygro"
 PLATFORMS = ["humidifier"]
 
+CONF_NAME = "name"
 CONF_HUMIDITY_SENSOR = "humidity_sensor"
 CONF_SWITCH_ENTITY = "switch_entity"
 CONF_TARGET_HUMIDITY = "target_humidity"

@@ -23,6 +23,7 @@ from .const import (
     CONF_HUMIDITY_SENSOR,
     CONF_MAX_HUMIDITY,
     CONF_MIN_HUMIDITY,
+    CONF_NAME,
     CONF_MIN_RUNTIME,
     CONF_RISE_PERCENT,
     CONF_RISE_TIME,
@@ -57,6 +58,7 @@ class RealHygroHumidifier(RestoreEntity, HumidifierEntity):
         self.hass = hass
         self.entry = entry
         cfg = entry.data
+        self._attr_name = cfg.get(CONF_NAME, DEFAULT_NAME)
         self._sensor_entity = cfg[CONF_HUMIDITY_SENSOR]
         self._switch_entity = cfg[CONF_SWITCH_ENTITY]
         self._attr_target_humidity = cfg[CONF_TARGET_HUMIDITY]

@@ -3,6 +3,9 @@
     "step": {
       "user": {
         "title": "Luftentfeuchter konfigurieren",
+        "description": "Lege einen Namen fest und konfiguriere Sensor, Schalter und Regeln. Alle Eingaben sind Textfelder.",
+        "data": {
+          "name": "Instanzname",
         "description": "Sensor, Schalter und Regelparameter auswählen.",
         "data": {
           "humidity_sensor": "Luftfeuchtigkeitssensor",
@@ -20,6 +23,9 @@
       }
     },
     "error": {
+      "name_required": "Bitte einen Instanznamen eingeben.",
+      "not_a_number": "Bitte einen gültigen Zahlenwert eingeben.",
+      "out_of_range": "Der Wert liegt außerhalb des erlaubten Bereichs.",
       "invalid_hms": "Mindestlaufzeit muss im Format hh:mm:ss sein.",
       "invalid_ms": "Anstiegsfenster muss im Format mm:ss sein.",
       "min_max_invalid": "Minimale Feuchtigkeit muss kleiner als maximale Feuchtigkeit sein."
@@ -29,6 +35,9 @@
     "step": {
       "init": {
         "title": "Luftentfeuchter anpassen",
+        "description": "Ändere die Einstellungen dieser Instanz ohne Neuinstallation.",
+        "data": {
+          "name": "Instanzname",
         "description": "Ändere die Einstellungen ohne die Integration neu anzulegen.",
         "data": {
           "humidity_sensor": "Luftfeuchtigkeitssensor",
@@ -46,6 +55,9 @@
       }
     },
     "error": {
+      "name_required": "Bitte einen Instanznamen eingeben.",
+      "not_a_number": "Bitte einen gültigen Zahlenwert eingeben.",
+      "out_of_range": "Der Wert liegt außerhalb des erlaubten Bereichs.",
       "invalid_hms": "Mindestlaufzeit muss im Format hh:mm:ss sein.",
       "invalid_ms": "Anstiegsfenster muss im Format mm:ss sein.",
       "min_max_invalid": "Minimale Feuchtigkeit muss kleiner als maximale Feuchtigkeit sein."
