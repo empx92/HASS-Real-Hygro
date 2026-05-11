@@ -50,6 +50,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_e
 
 class RealHygroHumidifier(RestoreEntity, HumidifierEntity):
     _attr_should_poll = False
+    _attr_name = DEFAULT_NAME
     _attr_device_class = HumidifierDeviceClass.DEHUMIDIFIER
     _attr_supported_features = HumidifierEntityFeature.TARGET_HUMIDITY
 
