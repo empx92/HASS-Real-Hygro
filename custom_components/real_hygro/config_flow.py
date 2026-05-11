@@ -1,6 +1,8 @@
 """Config flow for Real Hygro."""
 from __future__ import annotations
 
+from datetime import timedelta
+
 import voluptuous as vol
 
 from homeassistant import config_entries
