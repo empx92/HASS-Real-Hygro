@@ -33,6 +33,16 @@ from .const import (
 )
 
 
+def _parse_hms(value: str) -> timedelta:
+    hours, minutes, seconds = (int(part) for part in value.split(":"))
+    return timedelta(hours=hours, minutes=minutes, seconds=seconds)
+
+
+def _parse_ms(value: str) -> timedelta:
+    minutes, seconds = (int(part) for part in value.split(":"))
+    return timedelta(minutes=minutes, seconds=seconds)
+
+
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback) -> None:
     async_add_entities([RealHygroHumidifier(hass, entry)])
 
@@ -54,16 +64,9 @@ class RealHygroHumidifier(RestoreEntity, HumidifierEntity):
         self._wet_tolerance = cfg[CONF_WET_TOLERANCE]
         self._attr_min_humidity = cfg[CONF_MIN_HUMIDITY]
         self._attr_max_humidity = cfg[CONF_MAX_HUMIDITY]
-        self._min_runtime = timedelta(
-            hours=cfg[CONF_MIN_RUNTIME].get("hours", 0),
-            minutes=cfg[CONF_MIN_RUNTIME].get("minutes", 0),
-            seconds=cfg[CONF_MIN_RUNTIME].get("seconds", 0),
-        )
+        self._min_runtime = _parse_hms(cfg[CONF_MIN_RUNTIME])
         self._automatic_enabled = cfg[CONF_AUTOMATIC_ENABLED]
-        self._rise_time = timedelta(
-            minutes=cfg[CONF_RISE_TIME].get("minutes", 0),
-            seconds=cfg[CONF_RISE_TIME].get("seconds", 0),
-        )
+        self._rise_time = _parse_ms(cfg[CONF_RISE_TIME])
         self._rise_percent = float(cfg[CONF_RISE_PERCENT])
 
         self._attr_available = True
