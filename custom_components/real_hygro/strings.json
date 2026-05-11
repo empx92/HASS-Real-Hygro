@@ -1,0 +1,23 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Luftentfeuchter konfigurieren",
+        "description": "Sensor, Schalter und Regelparameter auswählen.",
+        "data": {
+          "humidity_sensor": "Luftfeuchtigkeitssensor",
+          "switch_entity": "Schalter",
+          "target_humidity": "Zielfeuchtigkeit (%)",
+          "dry_tolerance": "Trocken-Toleranz (%)",
+          "wet_tolerance": "Feucht-Toleranz (%)",
+          "min_humidity": "Minimale Feuchtigkeit (%)",
+          "max_humidity": "Maximale Feuchtigkeit (%)",
+          "min_runtime": "Mindestlaufzeit",
+          "automatic_enabled": "Automatik aktiv",
+          "rise_time": "Anstiegsfenster",
+          "rise_percent": "Anstieg innerhalb Fenster (%)"
+        }
+      }
+    }
+  }
+}
