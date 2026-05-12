@@ -4,11 +4,7 @@ from __future__ import annotations
 from collections import deque
 from datetime import datetime, timedelta
 
-from homeassistant.components.humidifier import (
-    HumidifierDeviceClass,
-    HumidifierEntity,
-    HumidifierEntityFeature,
-)
+from homeassistant.components.humidifier import HumidifierEntity, HumidifierEntityFeature
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import ATTR_ENTITY_ID
 from homeassistant.core import HomeAssistant, callback
@@ -35,11 +31,13 @@ from .const import (
 
 
 def _parse_hms(value: str) -> timedelta:
+    value = str(value)
     hours, minutes, seconds = (int(part) for part in value.split(":"))
     return timedelta(hours=hours, minutes=minutes, seconds=seconds)
 
 
 def _parse_ms(value: str) -> timedelta:
+    value = str(value)
     minutes, seconds = (int(part) for part in value.split(":"))
     return timedelta(minutes=minutes, seconds=seconds)
 
@@ -50,8 +48,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_e
 
 class RealHygroHumidifier(RestoreEntity, HumidifierEntity):
     _attr_should_poll = False
-    _attr_name = DEFAULT_NAME
-    _attr_device_class = HumidifierDeviceClass.DEHUMIDIFIER
+    _attr_device_class = "dehumidifier"
     _attr_supported_features = HumidifierEntityFeature.TARGET_HUMIDITY
 
     def __init__(self, hass: HomeAssistant, entry: ConfigEntry) -> None:
@@ -62,8 +59,8 @@ class RealHygroHumidifier(RestoreEntity, HumidifierEntity):
         self._sensor_entity = cfg[CONF_HUMIDITY_SENSOR]
         self._switch_entity = cfg[CONF_SWITCH_ENTITY]
         self._attr_target_humidity = cfg[CONF_TARGET_HUMIDITY]
-        self._dry_tolerance = cfg[CONF_DRY_TOLERANCE]
-        self._wet_tolerance = cfg[CONF_WET_TOLERANCE]
+        self._dry_tolerance = float(cfg[CONF_DRY_TOLERANCE])
+        self._wet_tolerance = float(cfg[CONF_WET_TOLERANCE])
         self._attr_min_humidity = cfg[CONF_MIN_HUMIDITY]
         self._attr_max_humidity = cfg[CONF_MAX_HUMIDITY]
         self._min_runtime = _parse_hms(cfg[CONF_MIN_RUNTIME])
