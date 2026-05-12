@@ -1,7 +1,7 @@
 {
   "domain": "real_hygro",
   "name": "Real Hygro Dehumidifier",
-  "version": "0.2.0",
+  "version": "0.0.1",
   "requirements": [],
   "config_flow": true,
   "iot_class": "local_polling"
