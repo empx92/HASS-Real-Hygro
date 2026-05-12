@@ -1,0 +1,58 @@
+diff --git a/custom_components/real_hygro/translations/de.json b/custom_components/real_hygro/translations/de.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..2db09a5dbac9d049776357b33ac5852f17281e7b
+--- /dev/null
++++ b/custom_components/real_hygro/translations/de.json
+@@ -0,0 +1,52 @@
++{
++  "config": {
++    "step": {
++      "user": {
++        "title": "Luftentfeuchter konfigurieren",
++        "description": "Wähle Sensor und Schalter. Erklärung: Einschaltabstand = über Sollwert startet Entfeuchtung; Ausschaltabstand = unter Sollwert stoppt Entfeuchtung; Minimalwert/Maximalwert begrenzen den einstellbaren Sollwert im Gerät.",
++        "data": {
++          "name": "Name der Instanz",
++          "humidity_sensor": "Luftfeuchtigkeitssensor",
++          "switch_entity": "Stellschalter",
++          "target_humidity": "Sollwert Luftfeuchtigkeit (%)",
++          "dry_tolerance": "Ausschaltabstand (%)",
++          "wet_tolerance": "Einschaltabstand (%)",
++          "min_humidity": "Minimal erlaubter Sollwert (%)",
++          "max_humidity": "Maximal erlaubter Sollwert (%)",
++          "min_runtime": "Mindestlaufzeit",
++          "automatic_enabled": "Automatik (Anstiegserkennung) aktiv",
++          "rise_time": "Anstiegsfenster",
++          "rise_percent": "Anstieg in Fenster (%)"
++        }
++      }
++    },
++    "error": {
++      "name_required": "Bitte einen Namen eingeben.",
++      "invalid_hms": "Mindestlaufzeit muss hh:mm:ss sein.",
++      "invalid_ms": "Anstiegsfenster muss mm:ss sein.",
++      "min_max_invalid": "Minimalwert muss kleiner als Maximalwert sein."
++    }
++  },
++  "options": {
++    "step": {
++      "init": {
++        "title": "Luftentfeuchter anpassen",
++        "description": "Einstellungen dieser Instanz ändern.",
++        "data": {
++          "name": "Name der Instanz",
++          "humidity_sensor": "Luftfeuchtigkeitssensor",
++          "switch_entity": "Stellschalter",
++          "target_humidity": "Sollwert Luftfeuchtigkeit (%)",
++          "dry_tolerance": "Ausschaltabstand (%)",
++          "wet_tolerance": "Einschaltabstand (%)",
++          "min_humidity": "Minimal erlaubter Sollwert (%)",
++          "max_humidity": "Maximal erlaubter Sollwert (%)",
++          "min_runtime": "Mindestlaufzeit",
++          "automatic_enabled": "Automatik (Anstiegserkennung) aktiv",
++          "rise_time": "Anstiegsfenster",
++          "rise_percent": "Anstieg in Fenster (%)"
++        }
++      }
++    }
++  }
++}
