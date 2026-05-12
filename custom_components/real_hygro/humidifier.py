@@ -4,7 +4,7 @@ from __future__ import annotations
 from collections import deque
 from datetime import datetime, timedelta
 
-from homeassistant.components.humidifier import HumidifierEntity, HumidifierEntityFeature
+from homeassistant.components.humidifier import HumidifierEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import ATTR_ENTITY_ID
 from homeassistant.core import HomeAssistant, callback
@@ -53,7 +53,6 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_e
 class RealHygroHumidifier(RestoreEntity, HumidifierEntity):
     _attr_should_poll = False
     _attr_device_class = "dehumidifier"
-    _attr_supported_features = HumidifierEntityFeature.TARGET_HUMIDITY
 
     def __init__(self, hass: HomeAssistant, entry: ConfigEntry) -> None:
         self.hass = hass
