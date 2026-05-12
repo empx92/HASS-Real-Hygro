@@ -1,0 +1,28 @@
+"""Constants for Real Hygro."""
+
+DOMAIN = "real_hygro"
+PLATFORMS = ["humidifier"]
+
+CONF_NAME = "name"
+CONF_HUMIDITY_SENSOR = "humidity_sensor"
+CONF_SWITCH_ENTITY = "switch_entity"
+CONF_TARGET_HUMIDITY = "target_humidity"
+CONF_DRY_TOLERANCE = "dry_tolerance"
+CONF_WET_TOLERANCE = "wet_tolerance"
+CONF_MIN_HUMIDITY = "min_humidity"
+CONF_MAX_HUMIDITY = "max_humidity"
+CONF_MIN_RUNTIME = "min_runtime"
+CONF_AUTOMATIC_ENABLED = "automatic_enabled"
+CONF_RISE_TIME = "rise_time"
+CONF_RISE_PERCENT = "rise_percent"
+
+DEFAULT_NAME = "Luftentfeuchter"
+DEFAULT_TARGET_HUMIDITY = 55
+DEFAULT_DRY_TOLERANCE = 3
+DEFAULT_WET_TOLERANCE = 3
+DEFAULT_MIN_HUMIDITY = 35
+DEFAULT_MAX_HUMIDITY = 90
+DEFAULT_MIN_RUNTIME = "00:10:00"
+DEFAULT_AUTOMATIC_ENABLED = True
+DEFAULT_RISE_TIME = "05:00"
+DEFAULT_RISE_PERCENT = 3

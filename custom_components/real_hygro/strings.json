@@ -1,0 +1,62 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Luftentfeuchter konfigurieren",
+        "description": "Lege einen Namen fest und konfiguriere Sensor, Schalter und Regeln. Alle Eingaben sind Textfelder.",
+        "data": {
+          "name": "Instanzname",
+          "humidity_sensor": "Luftfeuchtigkeitssensor",
+          "switch_entity": "Schalter",
+          "target_humidity": "Zielfeuchtigkeit (%)",
+          "dry_tolerance": "Trocken-Toleranz (%)",
+          "wet_tolerance": "Feucht-Toleranz (%)",
+          "min_humidity": "Minimale Feuchtigkeit (%)",
+          "max_humidity": "Maximale Feuchtigkeit (%)",
+          "min_runtime": "Mindestlaufzeit (hh:mm:ss)",
+          "automatic_enabled": "Automatik aktiv",
+          "rise_time": "Anstiegsfenster (mm:ss)",
+          "rise_percent": "Anstieg innerhalb Fenster (%)"
+        }
+      }
+    },
+    "error": {
+      "name_required": "Bitte einen Instanznamen eingeben.",
+      "not_a_number": "Bitte einen gültigen Zahlenwert eingeben.",
+      "out_of_range": "Der Wert liegt außerhalb des erlaubten Bereichs.",
+      "invalid_hms": "Mindestlaufzeit muss im Format hh:mm:ss sein.",
+      "invalid_ms": "Anstiegsfenster muss im Format mm:ss sein.",
+      "min_max_invalid": "Minimale Feuchtigkeit muss kleiner als maximale Feuchtigkeit sein."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Luftentfeuchter anpassen",
+        "description": "Ändere die Einstellungen dieser Instanz ohne Neuinstallation.",
+        "data": {
+          "name": "Instanzname",
+          "humidity_sensor": "Luftfeuchtigkeitssensor",
+          "switch_entity": "Schalter",
+          "target_humidity": "Zielfeuchtigkeit (%)",
+          "dry_tolerance": "Trocken-Toleranz (%)",
+          "wet_tolerance": "Feucht-Toleranz (%)",
+          "min_humidity": "Minimale Feuchtigkeit (%)",
+          "max_humidity": "Maximale Feuchtigkeit (%)",
+          "min_runtime": "Mindestlaufzeit (hh:mm:ss)",
+          "automatic_enabled": "Automatik aktiv",
+          "rise_time": "Anstiegsfenster (mm:ss)",
+          "rise_percent": "Anstieg innerhalb Fenster (%)"
+        }
+      }
+    },
+    "error": {
+      "name_required": "Bitte einen Instanznamen eingeben.",
+      "not_a_number": "Bitte einen gültigen Zahlenwert eingeben.",
+      "out_of_range": "Der Wert liegt außerhalb des erlaubten Bereichs.",
+      "invalid_hms": "Mindestlaufzeit muss im Format hh:mm:ss sein.",
+      "invalid_ms": "Anstiegsfenster muss im Format mm:ss sein.",
+      "min_max_invalid": "Minimale Feuchtigkeit muss kleiner als maximale Feuchtigkeit sein."
+    }
+  }
+}
