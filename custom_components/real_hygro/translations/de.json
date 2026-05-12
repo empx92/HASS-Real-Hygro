@@ -1,22 +1,32 @@
 {
+  "title": "Luftentfeuchter",
   "config": {
     "step": {
       "user": {
         "title": "Luftentfeuchter konfigurieren",
-        "description": "Wähle Sensor und Schalter. Erklärung: Einschaltabstand = über Sollwert startet Entfeuchtung; Ausschaltabstand = unter Sollwert stoppt Entfeuchtung; Minimalwert/Maximalwert begrenzen den einstellbaren Sollwert im Gerät.",
+        "description": "Name vergeben und Regeln einstellen.",
         "data": {
-          "name": "Name der Instanz",
+          "name": "Name",
           "humidity_sensor": "Luftfeuchtigkeitssensor",
           "switch_entity": "Stellschalter",
-          "target_humidity": "Sollwert Luftfeuchtigkeit (%)",
-          "dry_tolerance": "Ausschaltabstand (%)",
+          "target_humidity": "Soll-Luftfeuchtigkeit (%)",
           "wet_tolerance": "Einschaltabstand (%)",
-          "min_humidity": "Minimal erlaubter Sollwert (%)",
-          "max_humidity": "Maximal erlaubter Sollwert (%)",
+          "dry_tolerance": "Ausschaltabstand (%)",
+          "min_humidity": "Untergrenze Sollwert (%)",
+          "max_humidity": "Obergrenze Sollwert (%)",
           "min_runtime": "Mindestlaufzeit",
-          "automatic_enabled": "Automatik (Anstiegserkennung) aktiv",
-          "rise_time": "Anstiegsfenster",
-          "rise_percent": "Anstieg in Fenster (%)"
+          "automatic_enabled": "Automatik aktiv",
+          "rise_time": "Zeitfenster für Anstieg",
+          "rise_percent": "Anstieg im Zeitfenster (%)"
+        },
+        "data_description": {
+          "wet_tolerance": "Wenn Istwert >= Sollwert + Einschaltabstand, wird eingeschaltet.",
+          "dry_tolerance": "Wenn Istwert <= Sollwert - Ausschaltabstand, wird ausgeschaltet.",
+          "min_humidity": "Kleinster Sollwert, den du am Gerät einstellen kannst.",
+          "max_humidity": "Größter Sollwert, den du am Gerät einstellen kannst.",
+          "min_runtime": "Mindestzeit, die der Schalter nach dem Einschalten an bleibt.",
+          "rise_time": "In diesem Zeitraum wird die Feuchteanstiegs-Prüfung berechnet.",
+          "rise_percent": "Steigt die Feuchte um diesen Wert innerhalb des Fensters, schaltet Automatik ein."
         }
       }
     },
@@ -24,7 +34,7 @@
       "name_required": "Bitte einen Namen eingeben.",
       "invalid_hms": "Mindestlaufzeit muss hh:mm:ss sein.",
       "invalid_ms": "Anstiegsfenster muss mm:ss sein.",
-      "min_max_invalid": "Minimalwert muss kleiner als Maximalwert sein."
+      "min_max_invalid": "Untergrenze muss kleiner als Obergrenze sein."
     }
   },
   "options": {
@@ -33,18 +43,27 @@
         "title": "Luftentfeuchter anpassen",
         "description": "Einstellungen dieser Instanz ändern.",
         "data": {
-          "name": "Name der Instanz",
+          "name": "Name",
           "humidity_sensor": "Luftfeuchtigkeitssensor",
           "switch_entity": "Stellschalter",
-          "target_humidity": "Sollwert Luftfeuchtigkeit (%)",
-          "dry_tolerance": "Ausschaltabstand (%)",
+          "target_humidity": "Soll-Luftfeuchtigkeit (%)",
           "wet_tolerance": "Einschaltabstand (%)",
-          "min_humidity": "Minimal erlaubter Sollwert (%)",
-          "max_humidity": "Maximal erlaubter Sollwert (%)",
+          "dry_tolerance": "Ausschaltabstand (%)",
+          "min_humidity": "Untergrenze Sollwert (%)",
+          "max_humidity": "Obergrenze Sollwert (%)",
           "min_runtime": "Mindestlaufzeit",
-          "automatic_enabled": "Automatik (Anstiegserkennung) aktiv",
-          "rise_time": "Anstiegsfenster",
-          "rise_percent": "Anstieg in Fenster (%)"
+          "automatic_enabled": "Automatik aktiv",
+          "rise_time": "Zeitfenster für Anstieg",
+          "rise_percent": "Anstieg im Zeitfenster (%)"
+        },
+        "data_description": {
+          "wet_tolerance": "Wenn Istwert >= Sollwert + Einschaltabstand, wird eingeschaltet.",
+          "dry_tolerance": "Wenn Istwert <= Sollwert - Ausschaltabstand, wird ausgeschaltet.",
+          "min_humidity": "Kleinster Sollwert, den du am Gerät einstellen kannst.",
+          "max_humidity": "Größter Sollwert, den du am Gerät einstellen kannst.",
+          "min_runtime": "Mindestzeit, die der Schalter nach dem Einschalten an bleibt.",
+          "rise_time": "In diesem Zeitraum wird die Feuchteanstiegs-Prüfung berechnet.",
+          "rise_percent": "Steigt die Feuchte um diesen Wert innerhalb des Fensters, schaltet Automatik ein."
         }
       }
     }
