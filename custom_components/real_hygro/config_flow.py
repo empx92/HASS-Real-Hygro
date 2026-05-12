@@ -50,40 +50,52 @@ def _duration_dict_ms(value: str) -> dict[str, int]:
 
 
 def _base_schema(defaults: dict[str, Any]) -> vol.Schema:
-    return vol.Schema(
-        {
-            vol.Required(CONF_NAME, default=defaults[CONF_NAME]): selector.TextSelector(),
-            vol.Required(CONF_HUMIDITY_SENSOR, default=defaults[CONF_HUMIDITY_SENSOR]): selector.EntitySelector(
-                selector.EntitySelectorConfig(domain=["sensor"], multiple=False)
-            ),
-            vol.Required(CONF_SWITCH_ENTITY, default=defaults[CONF_SWITCH_ENTITY]): selector.EntitySelector(
-                selector.EntitySelectorConfig(domain=["switch"], multiple=False)
-            ),
-            vol.Required(CONF_TARGET_HUMIDITY, default=defaults[CONF_TARGET_HUMIDITY]): selector.NumberSelector(
-                selector.NumberSelectorConfig(min=1, max=100, step=1, mode=selector.NumberSelectorMode.BOX)
-            ),
-            vol.Required(CONF_DRY_TOLERANCE, default=defaults[CONF_DRY_TOLERANCE]): selector.NumberSelector(
-                selector.NumberSelectorConfig(min=0, max=20, step=0.1, mode=selector.NumberSelectorMode.BOX)
-            ),
-            vol.Required(CONF_WET_TOLERANCE, default=defaults[CONF_WET_TOLERANCE]): selector.NumberSelector(
-                selector.NumberSelectorConfig(min=0, max=20, step=0.1, mode=selector.NumberSelectorMode.BOX)
-            ),
-            vol.Required(CONF_MIN_HUMIDITY, default=defaults[CONF_MIN_HUMIDITY]): selector.NumberSelector(
-                selector.NumberSelectorConfig(min=1, max=100, step=1, mode=selector.NumberSelectorMode.BOX)
-            ),
-            vol.Required(CONF_MAX_HUMIDITY, default=defaults[CONF_MAX_HUMIDITY]): selector.NumberSelector(
-                selector.NumberSelectorConfig(min=1, max=100, step=1, mode=selector.NumberSelectorMode.BOX)
-            ),
-            vol.Required(CONF_MIN_RUNTIME, default=_duration_dict_hms(defaults[CONF_MIN_RUNTIME])): selector.DurationSelector(),
-            vol.Required(CONF_AUTOMATIC_ENABLED, default=defaults[CONF_AUTOMATIC_ENABLED]): selector.BooleanSelector(),
-            vol.Required(CONF_RISE_TIME, default=_duration_dict_ms(defaults[CONF_RISE_TIME])): selector.DurationSelector(
-                selector.DurationSelectorConfig(enable_hour=False)
-            ),
-            vol.Required(CONF_RISE_PERCENT, default=defaults[CONF_RISE_PERCENT]): selector.NumberSelector(
-                selector.NumberSelectorConfig(min=0.1, max=30, step=0.1, mode=selector.NumberSelectorMode.BOX)
-            ),
-        }
-    )
+    schema: dict[Any, Any] = {
+        vol.Required(CONF_NAME, default=defaults[CONF_NAME]): selector.TextSelector(),
+        vol.Required(CONF_TARGET_HUMIDITY, default=defaults[CONF_TARGET_HUMIDITY]): selector.NumberSelector(
+            selector.NumberSelectorConfig(min=1, max=100, step=1, mode=selector.NumberSelectorMode.BOX)
+        ),
+        vol.Required(CONF_DRY_TOLERANCE, default=defaults[CONF_DRY_TOLERANCE]): selector.NumberSelector(
+            selector.NumberSelectorConfig(min=0, max=20, step=0.1, mode=selector.NumberSelectorMode.BOX)
+        ),
+        vol.Required(CONF_WET_TOLERANCE, default=defaults[CONF_WET_TOLERANCE]): selector.NumberSelector(
+            selector.NumberSelectorConfig(min=0, max=20, step=0.1, mode=selector.NumberSelectorMode.BOX)
+        ),
+        vol.Required(CONF_MIN_HUMIDITY, default=defaults[CONF_MIN_HUMIDITY]): selector.NumberSelector(
+            selector.NumberSelectorConfig(min=1, max=100, step=1, mode=selector.NumberSelectorMode.BOX)
+        ),
+        vol.Required(CONF_MAX_HUMIDITY, default=defaults[CONF_MAX_HUMIDITY]): selector.NumberSelector(
+            selector.NumberSelectorConfig(min=1, max=100, step=1, mode=selector.NumberSelectorMode.BOX)
+        ),
+        vol.Required(CONF_MIN_RUNTIME, default=_duration_dict_hms(defaults[CONF_MIN_RUNTIME])): selector.DurationSelector(),
+        vol.Required(CONF_AUTOMATIC_ENABLED, default=defaults[CONF_AUTOMATIC_ENABLED]): selector.BooleanSelector(),
+        vol.Required(CONF_RISE_TIME, default=_duration_dict_ms(defaults[CONF_RISE_TIME])): selector.DurationSelector(
+            selector.DurationSelectorConfig(enable_hour=False)
+        ),
+        vol.Required(CONF_RISE_PERCENT, default=defaults[CONF_RISE_PERCENT]): selector.NumberSelector(
+            selector.NumberSelectorConfig(min=0.1, max=30, step=0.1, mode=selector.NumberSelectorMode.BOX)
+        ),
+    }
+
+    if defaults.get(CONF_HUMIDITY_SENSOR):
+        schema[vol.Required(CONF_HUMIDITY_SENSOR, default=defaults[CONF_HUMIDITY_SENSOR])] = selector.EntitySelector(
+            selector.EntitySelectorConfig(domain=["sensor"], multiple=False)
+        )
+    else:
+        schema[vol.Required(CONF_HUMIDITY_SENSOR)] = selector.EntitySelector(
+            selector.EntitySelectorConfig(domain=["sensor"], multiple=False)
+        )
+
+    if defaults.get(CONF_SWITCH_ENTITY):
+        schema[vol.Required(CONF_SWITCH_ENTITY, default=defaults[CONF_SWITCH_ENTITY])] = selector.EntitySelector(
+            selector.EntitySelectorConfig(domain=["switch"], multiple=False)
+        )
+    else:
+        schema[vol.Required(CONF_SWITCH_ENTITY)] = selector.EntitySelector(
+            selector.EntitySelectorConfig(domain=["switch"], multiple=False)
+        )
+
+    return vol.Schema(schema)
 
 
 def _normalize(data: dict[str, Any]) -> tuple[dict[str, Any], dict[str, str]]:
