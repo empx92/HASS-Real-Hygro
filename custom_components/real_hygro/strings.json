@@ -6,8 +6,6 @@
         "description": "Lege einen Namen fest und konfiguriere Sensor, Schalter und Regeln. Alle Eingaben sind Textfelder.",
         "data": {
           "name": "Instanzname",
-        "description": "Sensor, Schalter und Regelparameter auswählen.",
-        "data": {
           "humidity_sensor": "Luftfeuchtigkeitssensor",
           "switch_entity": "Schalter",
           "target_humidity": "Zielfeuchtigkeit (%)",
@@ -38,8 +36,6 @@
         "description": "Ändere die Einstellungen dieser Instanz ohne Neuinstallation.",
         "data": {
           "name": "Instanzname",
-        "description": "Ändere die Einstellungen ohne die Integration neu anzulegen.",
-        "data": {
           "humidity_sensor": "Luftfeuchtigkeitssensor",
           "switch_entity": "Schalter",
           "target_humidity": "Zielfeuchtigkeit (%)",
