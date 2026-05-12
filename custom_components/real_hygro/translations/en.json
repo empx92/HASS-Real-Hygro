@@ -1,0 +1,24 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure Dehumidifier",
+        "description": "Select sensor and switch. Start offset turns ON above target; Stop offset turns OFF below target; Min/Max define allowed target range.",
+        "data": {
+          "name": "Instance name",
+          "humidity_sensor": "Humidity sensor",
+          "switch_entity": "Control switch",
+          "target_humidity": "Target humidity (%)",
+          "dry_tolerance": "Stop offset (%)",
+          "wet_tolerance": "Start offset (%)",
+          "min_humidity": "Minimum allowed target (%)",
+          "max_humidity": "Maximum allowed target (%)",
+          "min_runtime": "Minimum runtime",
+          "automatic_enabled": "Automatic rise detection enabled",
+          "rise_time": "Rise window",
+          "rise_percent": "Rise within window (%)"
+        }
+      }
+    }
+  }
+}
