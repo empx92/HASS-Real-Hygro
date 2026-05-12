@@ -53,27 +53,25 @@ def _base_schema(defaults: dict[str, Any]) -> vol.Schema:
     schema: dict[Any, Any] = {
         vol.Required(CONF_NAME, default=defaults[CONF_NAME]): selector.TextSelector(),
         vol.Required(CONF_TARGET_HUMIDITY, default=defaults[CONF_TARGET_HUMIDITY]): selector.NumberSelector(
-            selector.NumberSelectorConfig(min=1, max=100, step=1, mode=selector.NumberSelectorMode.BOX)
+            selector.NumberSelectorConfig(min=1, max=100, step=1, mode="box")
         ),
         vol.Required(CONF_DRY_TOLERANCE, default=defaults[CONF_DRY_TOLERANCE]): selector.NumberSelector(
-            selector.NumberSelectorConfig(min=0, max=20, step=0.1, mode=selector.NumberSelectorMode.BOX)
+            selector.NumberSelectorConfig(min=0, max=20, step=0.1, mode="box")
         ),
         vol.Required(CONF_WET_TOLERANCE, default=defaults[CONF_WET_TOLERANCE]): selector.NumberSelector(
-            selector.NumberSelectorConfig(min=0, max=20, step=0.1, mode=selector.NumberSelectorMode.BOX)
+            selector.NumberSelectorConfig(min=0, max=20, step=0.1, mode="box")
         ),
         vol.Required(CONF_MIN_HUMIDITY, default=defaults[CONF_MIN_HUMIDITY]): selector.NumberSelector(
-            selector.NumberSelectorConfig(min=1, max=100, step=1, mode=selector.NumberSelectorMode.BOX)
+            selector.NumberSelectorConfig(min=1, max=100, step=1, mode="box")
         ),
         vol.Required(CONF_MAX_HUMIDITY, default=defaults[CONF_MAX_HUMIDITY]): selector.NumberSelector(
-            selector.NumberSelectorConfig(min=1, max=100, step=1, mode=selector.NumberSelectorMode.BOX)
+            selector.NumberSelectorConfig(min=1, max=100, step=1, mode="box")
         ),
         vol.Required(CONF_MIN_RUNTIME, default=_duration_dict_hms(defaults[CONF_MIN_RUNTIME])): selector.DurationSelector(),
         vol.Required(CONF_AUTOMATIC_ENABLED, default=defaults[CONF_AUTOMATIC_ENABLED]): selector.BooleanSelector(),
-        vol.Required(CONF_RISE_TIME, default=_duration_dict_ms(defaults[CONF_RISE_TIME])): selector.DurationSelector(
-            selector.DurationSelectorConfig(enable_hour=False)
-        ),
+        vol.Required(CONF_RISE_TIME, default=_duration_dict_ms(defaults[CONF_RISE_TIME])): selector.DurationSelector(),
         vol.Required(CONF_RISE_PERCENT, default=defaults[CONF_RISE_PERCENT]): selector.NumberSelector(
-            selector.NumberSelectorConfig(min=0.1, max=30, step=0.1, mode=selector.NumberSelectorMode.BOX)
+            selector.NumberSelectorConfig(min=0.1, max=30, step=0.1, mode="box")
         ),
     }
 
